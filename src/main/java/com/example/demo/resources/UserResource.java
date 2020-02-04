@@ -17,18 +17,18 @@ import com.example.demo.services.UserService;
 public class UserResource {
 	
 	@Autowired
-	private UserService userService;
+	private UserService service;
 	
 	@GetMapping
 	public ResponseEntity<List<User>> findAll(){
-		List<User> users = userService.findAll();
-		return ResponseEntity.ok().body(users);
+		List<User> objs = service.findAll();
+		return ResponseEntity.ok().body(objs);
 	}
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<User> findById(@PathVariable Long id){
-		User user = userService.findById(id);
-		return ResponseEntity.ok().body(user);
+		User obj = service.findById(id);
+		return ResponseEntity.ok().body(obj);
 	}
 
 }
